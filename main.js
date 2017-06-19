@@ -1,14 +1,28 @@
 console.log("Yup, it loaded");
 
+let products = null;
+let categories = null;
+
 //get products
+
+function buildCard(prodObj) {
+	let card = `<div class="prodCar">
+					<h2>${prodObj.name}</h2>
+					<h3>${prodObj.dept}</h3>
+					<p>${prodObj.price}</p>
+				</div>`;
+	return card;
+}
+
+let TempObj = {name: "Furby", dept: "Toys", price: 12.75}
+console.log("card", buildCard(TempObj));
+
 function displayProducts() {
-	let prodArr = JSON.parse(event.target.responseText).products;
-	console.log("products array", prodArr);
+	products = JSON.parse(event.target.responseText).products;
 }
 
 function displayCategories() {
-	let catArr = JSON.parse(event.target.responseText).categories;
-	console.log("category array", catArr);
+	categories = JSON.parse(event.target.responseText).categories;
 }
 
 function getCategories() {
